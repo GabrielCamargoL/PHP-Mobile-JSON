@@ -9,11 +9,9 @@
 	if (!$resultado) 
 		print "erro de sql";
 	else{
-		$row = $resultado->fetchAll(PDO::FETCH_COLUMN, 0);
-		print_r($row);
-
+		$row = $resultado->fetchAll();
 		$row = json_encode($row);
-		print_r($row);
+		print($row);
 
 		if (!$row) print "inexistente";
 	}

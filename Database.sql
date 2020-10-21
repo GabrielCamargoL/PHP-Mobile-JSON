@@ -19,7 +19,7 @@ create table tbl_pedido
 (
 	codigo_pedido smallint auto_increment primary key,
 	produtos varchar(70) ,
-	preco_total decimal(10,2),
+	preco_total decimal(10,2)
 );
 
 alter table tbl_pedido add column codigo_produto smallint;

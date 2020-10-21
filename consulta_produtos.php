@@ -1,21 +1,21 @@
 <?php 
-  $conecta = mysqli_connect("localhost:3306", "root","","Loja");
+	$conecta = new PDO('mysql:host=localhost;dbname=loja', 'root', '');
 	
-  $sql = "select * from tbl_produtos";
+  $sql = "select * from tbl_produto";
   
-	$resultado = $conecta->query($sql);
-  if (!$resultado) print "erro de sql";
-	$row = $resultado->fetch_assoc();
-		
-  if (!$resultado) print "erro de sql";
+	$resultado = $conecta->prepare($sql);
+	$resultado->execute();
+	
+	if (!$resultado) 
+		print "erro de sql";
 	else{
-		$row = $resultado->fetch_assoc();
-		
+		$row = $resultado->fetchAll(PDO::FETCH_COLUMN, 0);
+		print_r($row);
+
+		$row = json_encode($row);
+		print_r($row);
+
 		if (!$row) print "inexistente";
-		else
-		{
-			print $row["descricao"].";".$row["preco"].";".$row["quant"];
-		}
 	}
 	
 	$conecta->close();

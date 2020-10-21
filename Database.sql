@@ -21,3 +21,8 @@ create table tbl_pedido
 	produtos varchar(70) ,
 	preco_total decimal(10,2),
 );
+
+alter table tbl_pedido add column codigo_produto smallint;
+
+alter table tbl_pedido
+ADD FOREIGN KEY (codigo_produto) REFERENCES tbl_produto(codigo);

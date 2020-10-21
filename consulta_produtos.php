@@ -16,5 +16,5 @@
 		if (!$row) print "inexistente";
 	}
 	
-	$conecta->close();
+	$conecta=null;
 ?>
